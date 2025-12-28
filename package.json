@@ -1,0 +1,103 @@
+{
+  "name": "n8n-nodes-trizetto",
+  "version": "1.0.0",
+  "description": "A comprehensive n8n community node for TriZetto healthcare platform providing eligibility verification, claims processing, remittance advice, prior authorization, and EDI transaction management with full HIPAA compliance.",
+  "license": "BUSL-1.1",
+  "author": {
+    "name": "Velocity BPA",
+    "email": "licensing@velobpa.com",
+    "url": "https://velobpa.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-trizetto.git"
+  },
+  "homepage": "https://github.com/Velocity-BPA/n8n-nodes-trizetto#readme",
+  "bugs": {
+    "url": "https://github.com/Velocity-BPA/n8n-nodes-trizetto/issues"
+  },
+  "keywords": [
+    "n8n",
+    "n8n-community-node-package",
+    "trizetto",
+    "healthcare",
+    "edi",
+    "hipaa",
+    "claims",
+    "eligibility",
+    "remittance",
+    "835",
+    "837",
+    "270",
+    "271",
+    "276",
+    "277",
+    "clearinghouse",
+    "rcm",
+    "revenue-cycle",
+    "medical-billing",
+    "prior-authorization"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/TriZettoApi.credentials.js",
+      "dist/credentials/TriZettoGateway.credentials.js",
+      "dist/credentials/TriZettoSftp.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/TriZetto/TriZetto.node.js",
+      "dist/nodes/TriZetto/TriZettoTrigger.node.js"
+    ]
+  },
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "dev": "tsc --watch",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "xml2js": "^0.6.2",
+    "ssh2-sftp-client": "^9.1.0",
+    "moment": "^2.29.4",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.2",
+    "@types/ssh2-sftp-client": "^9.0.0",
+    "@types/uuid": "^9.0.2",
+    "@types/xml2js": "^0.4.11",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.0",
+    "gulp": "^4.0.2",
+    "jest": "^29.6.1",
+    "n8n-workflow": "^1.0.0",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
